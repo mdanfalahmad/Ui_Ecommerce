@@ -113,7 +113,7 @@ function App() {
 
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (loginForm.email && loginForm.password) {
+    if (loginForm.email == 'demo@nixon.com' && loginForm.password) {
       setIsLoggedIn(true)
       setNotice(`Welcome back, ${loginForm.email.split('@')[0]}.`)
       setView('shop')
@@ -330,21 +330,21 @@ function App() {
                   Full name
                   <input
                     value={checkoutForm.name}
-                    onChange={(event) => setCheckoutForm({ ...checkoutForm, name: event.target.value })}
+                    onChange={(event) => setCheckoutForm(prev => ({ ...prev, name: event.target.value }))}
                   />
                 </label>
                 <label>
                   Shipping address
                   <input
                     value={checkoutForm.address}
-                    onChange={(event) => setCheckoutForm({ ...checkoutForm, address: event.target.value })}
+                    onChange={(event) => setCheckoutForm(prev => ({ ...prev, address: event.target.value }))}
                   />
                 </label>
                 <label>
                   Card number
                   <input
                     value={checkoutForm.card}
-                    onChange={(event) => setCheckoutForm({ ...checkoutForm, card: event.target.value })}
+                    onChange={(event) => setCheckoutForm(prev => ({ ...prev, card: event.target.value }))}
                   />
                 </label>
                 <button type="submit" className="primary-btn full">
